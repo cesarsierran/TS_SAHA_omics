@@ -1,0 +1,40 @@
+---
+title: "DiffBind"
+author: "Cèsar-Lluís"
+date: "14/9/2022"
+output: html_document
+---
+
+#Set working directory
+```{r setup}
+knitr::opts_knit$set(root.dir = normalizePath('/Users/csierra/mount/point2/CRG/ATAC_N'))
+knitr::opts_chunk$set(echo = TRUE)
+setwd(knitr::opts_knit$get("root.dir"))
+getwd()
+```
+
+```{r setup, include=FALSE}
+library(DESeq2)
+library(edgeR)
+library(DiffBind)
+library(ggplot2)
+library(dplyr)
+```
+
+#MinOverlap=2
+#Load raw counts
+```{r}
+data_count <- readRDS("diffbind_data_count.rds")
+```
+
+#Normalize
+```{r}
+data_norm <- dba.normalize(data_count_all, library=DBA_LIBSIZE_PEAKREADS)
+```
+
+#Contrasts
+```{r}
+da_all <- dba.contrast(data_norm, categories=DBA_CONDITION, minMembers = 2)
+da_all <- dba.analyze(da_all, method=DBA_ALL_METHODS, bGreylist=FALSE)
+saveRDS(da_all, "/Users/CSIERRA/OneDrive - CRG - Centre de Regulacio Genomica/Results/FANS/DNA/P_diffbind_macs2_q005_filt/CSN_diffbind_data_count_analysis_norm.rds")
+```
