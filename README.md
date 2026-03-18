@@ -3,20 +3,19 @@ Code used to analyze the ATAC-seq and RNA-seq datasets generated for the manuscr
 
 ## ATAC-seq
 
-- ```01_cutadapt.sh```: create a Seurat objects from Cell Ranger ARC outputs of different samples.
-- ```02_fastqc.sh```: merge all samples into a single Seurat object
-- ```03_bowtie2.sh```: RNA and ATAC QC filtering. Dimensionality reduction and clustering. Labelling of engram+ cells. Save RNA and ATAC objects.
-- ```04_gatk_markduplicates.sh```: ATAC data processing, dimensionality reduction and clustering.
-- ```05_bam2bw.sh```: ATAC peak calling for each annotated cell type and group using MACS2
-- ```06_qualimap.sh```: Differential Accessibility Analysis.
-- ```07_filter_bam.sh```: Differential Accessibility Analysis plotting and downstream analyses
-- ```08_shift_9bp_bam.sh```: ATAC footprinting.
-- ```09_coverage.sh```: ATAC motif enrichment analysis and plotting.
-- ```10_correct_trisomic_bam.sh```: Signac Peak linking to genes in the dataset
-- ```11_bam2bw.sh```: cell types visualization and compositional analysis
-- ```12_macs2.sh```: Differential expression analysis
-- ```13_dba_count.sh```: Gene Set Enrichment Analysis
-- ```14_DiffBind.Rmd```: Identity score comparison between groups
+- ```01_cutadapt.sh```: Trim sequencing adapters.
+- ```02_fastqc.sh```: Quality Control of sequencing reads.
+- ```03_bowtie2.sh```: Align sequencing reads to mouse reference genome.
+- ```04_gatk_markduplicates.sh```: Locate and duplicate reads.
+- ```05_qualimap.sh```: BAM QC reports information for the evaluation of the quality of the provided alignment data.
+- ```06_filter_bam.sh```: Remove multi-mapped, unmapped, mate unmapped, not primary alignment, reads failing platform, duplicate reads.
+- ```07_shift_9bp_bam.sh```: Shift reads to compensates for the 9 bp staggered cuts made by the Tn5 transposase.
+- ```08_coverage.sh```: Quantify coverage of the trisomic region.
+- ```09_correct_trisomic_bam.sh```: Divide by 1.5 the reads mapping to the trisomic region in trisomic samples to compensate for the supernumerary chromosome.
+- ```10_bam2bw.sh```: Convert BAM to bedGraph
+- ```11_macs2.sh```: Peak calling.
+- ```12_dba_count.sh```: Counts and normalize reads.
+- ```13_DiffBind.Rmd```: Identity score comparison between groups
 
 ## RNA-seq
 
