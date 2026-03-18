@@ -15,7 +15,7 @@ Code used to analyze the ATAC-seq and RNA-seq datasets generated for the manuscr
 - ```10_bam2bw.sh```: Convert BAM to bedGraph
 - ```11_macs2.sh```: Peak calling.
 - ```12_dba_count.sh```: Counts and normalize reads.
-- ```13_DiffBind.Rmd```: Identity score comparison between groups
+- ```13_DiffBind.Rmd```: Differential accessibility analysis.
 
 ## RNA-seq
 
