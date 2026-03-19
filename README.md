@@ -26,6 +26,6 @@ Code used to analyze the ATAC-seq and RNA-seq datasets generated for the manuscr
 - ```4_index_bam.sh```: Index bam file.
 - ```5_run_bam2bw_scale2.sh```: Convert BAM to bedGraph.
 - ```6_run_featureCounts.sh```: Count reads per gene.
-- ```7_DESeq2.Rmd```: Differential expression analysis
+- ```7_DESeq2.Rmd```: Differential expression analysis.
   
-The sequencing data analyzed here is deposited in the Gene Expression Omnibus repository, with the series record GSE276656.
+The sequencing data analyzed here is deposited in the European Nucleotide Archive (ENA), with the accession number PRJEB110155. 
